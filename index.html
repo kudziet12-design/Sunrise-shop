@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Sunrise Customer Care</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f7fb;
+      color: #1f2937;
+    }
+
+    /* HEADER */
+    header {
+      background: #0d2742;
+      color: white;
+      padding: 25px 20px;
+    }
+
+    .header-content {
+      max-width: 1000px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo {
+      width: 55px;
+      height: 55px;
+      background: #c9a227;
+      color: #0d2742;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    header h1 {
+      font-size: 28px;
+    }
+
+    header p {
+      margin-top: 5px;
+      opacity: 0.85;
+    }
+
+    /* MAIN */
+    .container {
+      max-width: 900px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    .welcome {
+      background: white;
+      padding: 35px;
+      border-radius: 15px;
+      margin-bottom: 25px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+
+    .welcome h2 {
+      color: #0d2742;
+      margin-bottom: 10px;
+      font-size: 30px;
+    }
+
+    .welcome p {
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    .form-card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    }
+
+    .section-title {
+      color: #0d2742;
+      margin: 25px 0 18px;
+      border-bottom: 2px solid #edf1f5;
+      padding-bottom: 10px;
+    }
+
+    .section-title:first-child {
+      margin-top: 0;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #d5dde6;
+      border-radius: 9px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #0d5c91;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .condition-options {
+      display: flex;
+      gap: 15px;
+    }
+
+    .condition-option {
+      flex: 1;
+    }
+
+    .condition-option input {
+      display: none;
+    }
+
+    .condition-option label {
+      border: 1px solid #d5dde6;
+      padding: 14px;
+      border-radius: 9px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .condition-option input:checked + label {
+      background: #eaf3fa;
+      border-color: #0d5c91;
+      color: #0d2742;
+    }
+
+    .submit-button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 16px;
+      border: none;
+      border-radius: 9px;
+      background: #0d2742;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .submit-button:hover {
+      background: #164b73;
+    }
+
+    .whatsapp-button {
+      width: 100%;
+      margin-top: 12px;
+      padding: 16px;
+      border: none;
+      border-radius: 9px;
+      background: #25D366;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .whatsapp-button:hover {
+      background: #1da851;
+    }
+
+    .success {
+      display: none;
+      margin-top: 18px;
+      padding: 15px;
+      background: #e8f7ed;
+      color: #176b38;
+      border-radius: 9px;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #64748b;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .condition-options {
+        flex-direction: column;
+      }
+
+      .welcome h2 {
+        font-size: 24px;
+      }
+
+      .form-card {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-content">
+    <div class="logo">S</div>
+
+    <div>
+      <h1>SUNRISE</h1>
+      <p>Customer Care</p>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="welcome">
+    <h2>We Value Your Experience</h2>
+
+    <p>
+      Welcome to Meilive Customer Care.
+      Your feedback is important to us and helps us improve
+      our products and customer service.
+    </p>
+  </div>
+
+  <div class="form-card">
+
+    <form id="customerForm">
+
+      <!-- CUSTOMER INFORMATION -->
+
+      <h3 class="section-title">
+        Customer Information
+      </h3>
+
+      <div class="form-group">
+        <label for="customerName">
+          Customer Name *
+        </label>
+
+        <input
+          type="text"
+          id="customerName"
+          placeholder="Enter your full name"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="phone">
+          Phone Number *
+        </label>
+
+        <input
+          type="tel"
+          id="phone"
+          placeholder="Enter your phone number"
+          required
+        >
+      </div>
+
+
+      <!-- PURCHASE -->
+
+      <h3 class="section-title">
+        Purchase Information
+      </h3>
+
+      <div class="form-group">
+        <label for="goods">
+          Goods Bought *
+        </label>
+
+        <input
+          type="text"
+          id="goods"
+          placeholder="What did you buy?"
+          required
+        >
+      </div>
+
+
+      <div class="form-group">
+
+        <label>
+          Condition of Goods *
+        </label>
+
+        <div class="condition-options">
+
+          <div class="condition-option">
+
+            <input
+              type="radio"
+              id="good"
+              name="condition"
+              value="Good"
+              required
+            >
+
+            <label for="good">
+              Good 😊
+            </label>
+
+          </div>
+
+
+          <div class="condition-option">
+
+            <input
+              type="radio"
+              id="bad"
+              name="condition"
+              value="Bad"
+            >
+
+            <label for="bad">
+              Bad 😟
+            </label>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="goodsDescription">
+          Goods Condition Description
+        </label>
+
+        <textarea
+          id="goodsDescription"
+          placeholder="Please describe the condition of the goods..."
+        ></textarea>
+
+      </div>
+
+
+      <!-- WORKER -->
+
+      <h3 class="section-title">
+        Customer Service
+      </h3>
+
+      <div class="form-group">
+
+        <label for="workerBehaviour">
+          Worker's Behaviour *
+        </label>
+
+        <select id="workerBehaviour" required>
+
+          <option value="">
+            Select an option
+          </option>
+
+          <option value="Excellent">
+            Excellent
+          </option>
+
+          <option value="Good">
+            Good
+          </option>
+
+          <option value="Fair">
+            Fair
+          </option>
+
+          <option value="Needs Improvement">
+            Needs Improvement
+          </option>
+
+          <option value="Poor">
+            Poor
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="workerDescription">
+          Description of Worker's Behaviour
+        </label>
+
+        <textarea
+          id="workerDescription"
+          placeholder="Tell us about the service you received..."
+        ></textarea>
+
+      </div>
+
+
+      <!-- ADDITIONAL -->
+
+      <div class="form-group">
+
+        <label for="additionalComments">
+          Additional Comments
+        </label>
+
+        <textarea
+          id="additionalComments"
+          placeholder="Anything else you would like us to know?"
+        ></textarea>
+
+      </div>
+<button
+        type="button"
+        class="whatsapp-button"
+        onclick="sendToWhatsApp()"
+      >
+        Send Feedback to Sunrise WhatsApp
+      </button>
+
+
+      <div
+        id="successMessage"
+        class="success"
+      >
+        Thank you for your feedback.
+        Meilive appreciates your time.
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Meilive Customer Care
+</footer>
+
+
+<script>
+
+  /*
+    MEILIVE WHATSAPP NUMBER
+
+    0772777175 becomes:
+    +263 772 777 175
+
+    WhatsApp uses the international format,
+    so we remove the first 0 and add 263.
+  */
+
+  const MEILIVE_WHATSAPP = "263772777175";
+
+
+  function sendToWhatsApp() {
+
+    const name =
+      document.getElementById("customerName").value.trim();
+
+    const phone =
+      document.getElementById("phone").value.trim();
+
+    const goods =
+      document.getElementById("goods").value.trim();
+
+    const condition =
+      document.querySelector(
+        'input[name="condition"]:checked'
+      );
+
+    const goodsDescription =
+      document.getElementById("goodsDescription").value.trim();
+
+    const workerBehaviour =
+      document.getElementById("workerBehaviour").value;
+
+    const workerDescription =
+      document.getElementById("workerDescription").value.trim();
+
+    const additionalComments =
+      document.getElementById("additionalComments").value.trim();
+
+
+    // Check required information
+
+    if (!name || !phone || !goods ||
+        !condition || !workerBehaviour) {
+
+      alert(
+        "Please complete all required fields before sending."
+      );
+
+      return;
+    }
+
+
+    /*
+      Create the WhatsApp message.
+    */
+
+    const message =
+
+`MEILIVE CUSTOMER CARE
+=====================
+
+CUSTOMER INFORMATION
+
+Name:
+${name}
+
+Phone:
+${phone}
+
+
+PURCHASE INFORMATION
+
+Goods Bought:
+${goods}
+
+Goods Condition:
+${condition.value}
+
+Goods Condition Description:
+${goodsDescription || "Not provided"}
+
+
+CUSTOMER SERVICE
+
+Worker Behaviour:
+${workerBehaviour}
+
+Worker Behaviour Description:
+${workerDescription || "Not provided"}
+
+
+ADDITIONAL COMMENTS
+
+${additionalComments || "None"}
+
+
+Thank you for choosing Meilive.`;
+
+
+    /*
+      Encode the message so it can safely
+      be placed inside the WhatsApp URL.
+    */
+
+    const encodedMessage =
+      encodeURIComponent(message);
+
+
+    /*
+      Open WhatsApp.
+
+      On a phone this normally opens the
+      WhatsApp app.
+
+      On a computer it can open WhatsApp Web.
+    */
+
+    const whatsappURL =
+      `https://wa.me/${MEILIVE_WHATSAPP}?text=${encodedMessage}`;
+
+
+    window.open(
+      whatsappURL,
+      "_blank"
+    );
+
+
+    /*
+      Show confirmation on the website.
+    */
+
+    document.getElementById(
+      "successMessage"
+    ).style.display = "block";
+
+  }
+
+
+  /*
+    Optional normal form submission.
+    We keep it from refreshing the page.
+  */
+
+  document
+    .getElementById("customerForm")
+    .addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      sendToWhatsApp();
+
+    });
+
+</script>
+
+</body>
+</html>
